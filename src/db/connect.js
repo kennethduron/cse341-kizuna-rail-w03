@@ -1,11 +1,10 @@
-import { MongoClient } from 'mongodb';
+import mongoose from 'mongoose';
 
-let database;
-let client;
+let connection;
 
 const connectToDb = async (options = {}) => {
-  if (database) {
-    return database;
+  if (connection?.readyState === 1) {
+    return connection.db;
   }
 
   const connectionString = options.connectionString || process.env.MONGODB_URI;
@@ -15,25 +14,32 @@ const connectToDb = async (options = {}) => {
     throw new Error('MONGODB_URI is required.');
   }
 
-  client = new MongoClient(connectionString);
-  await client.connect();
-  database = client.db(databaseName);
-  return database;
+  connection = mongoose.createConnection(connectionString, {
+    dbName: databaseName
+  });
+  await connection.asPromise();
+  return connection.db;
 };
 
 const getDb = () => {
-  if (!database) {
+  if (!connection?.db) {
     throw new Error('Database not initialized. Call connectToDb first.');
   }
-  return database;
+  return connection.db;
+};
+
+const getMongooseConnection = () => {
+  if (connection?.readyState !== 1) {
+    throw new Error('Database not initialized. Call connectToDb first.');
+  }
+  return connection;
 };
 
 const closeDb = async () => {
-  if (client) {
-    await client.close();
-    client = undefined;
-    database = undefined;
+  if (connection) {
+    await connection.close();
+    connection = undefined;
   }
 };
 
-export { closeDb, connectToDb, getDb };
+export { closeDb, connectToDb, getDb, getMongooseConnection };

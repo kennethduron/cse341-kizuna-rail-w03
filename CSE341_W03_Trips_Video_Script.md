@@ -46,7 +46,7 @@ Show `src/controllers/trips.js`.
 
 Show `src/db/connect.js` and the test output.
 
-“The project already has features using the native MongoDB driver. I use one Mongoose connection and expose its native database object to those existing features, so Trips can use Mongoose without opening a duplicate connection or rewriting unrelated code. ESLint passed and all 20 automated tests passed against an isolated temporary MongoDB database.”
+“The project already has features using the native MongoDB driver. I use one Mongoose connection and expose its native database object to those existing features, so Trips can use Mongoose without opening a duplicate connection or rewriting unrelated code. ESLint and nine unit tests pass. I also checked twelve local HTTP requests using temporary data. The full test suite passed twenty tests before my final route and UI-test changes, but I could not get a fresh full-suite result in this environment because the test runner could not connect to its local temporary database.”
 
 ## Phone recording alternative
 

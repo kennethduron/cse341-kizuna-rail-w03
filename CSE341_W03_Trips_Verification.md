@@ -32,15 +32,15 @@
 | `npm install mongoose swagger-ui-express` | Passed; installed Mongoose 9.12.0 and Swagger UI Express 5.0.1 and updated `package-lock.json`. npm reported 14 audit findings: 7 moderate, 6 high, 1 critical. No force-upgrade was applied. |
 | `npm run lint` | Passed after implementation. |
 | `npm run test:unit` | Passed after adding UI state tests: 9 tests total (6 controller tests and 3 DOM-harness tests for empty, network-error, and unsuccessful HTTP states). |
-| `npm test` | The full suite passed 20 tests before the route split and three UI tests were added. A fresh run in this verification session did not complete: the restricted run failed to connect to the temporary MongoDB process (`EACCES` on `127.0.0.1`); an elevated rerun did not produce a result and was stopped after hanging. Therefore, the current 23-test full suite is not claimed as passing. |
-| `npm run demo` and local HTTP checks (temporary database) | Demo started with an isolated MongoDB Memory Server. Verified `/trips` 200, `/api/trips` 200 with 6 records, `/api/trips/alpine-panorama` 200, and `/api-docs/` 200. Earlier local checks also verified `/`, the EJS detail page with schedules, `/api-docs.json`, invalid ID 400, and missing ID 404. |
+| `npm test` | The full suite passed 20 tests before the route split and three UI tests were added. A fresh unprivileged run previously reported `EACCES` while connecting to MongoDB Memory Server at `127.0.0.1`. The latest elevated run produced no test summary after 120 seconds and was stopped. Therefore, the current 23-test full suite is not claimed as passing. |
+| `npm run demo` and local HTTP checks (temporary database) | Latest run started the isolated MongoDB Memory Server. Twelve requests passed: `/`, `/trains`, `/api/trains`, `/trips`, `/api/trips` (6 records), `/api/trips/alpine-panorama`, `/trips/alpine-panorama`, `/api-docs/`, `/api-docs.json` (includes `/api/trips`), invalid Trip ID 400, nonexistent API Trip 404, and nonexistent EJS detail 404. |
 | Chrome browser check against local demo | Previously confirmed six dynamically hydrated Trip cards, region filtering `central` to two trips, and navigation from a card to Trip details with schedules. Empty/error UI states are now covered by unit tests using a simulated DOM; they were not forced in a live browser. |
 | Git hygiene | `.env` is ignored by `.gitignore` and is not tracked. The final diff and secret-pattern scan passed; branch `feature/w03-trips` is pushed and Draft PR #2 is open. |
 
 ## Limitations and outstanding work
 
 - No production database, shared team database, Atlas, or Render service was accessed.
-- No empty-list or network-error state was forced in the browser; those states are implemented, and the list/controller logic has tests, but these two visual states are not claimed as manually browser-tested.
+- Empty-list, network-error, and unsuccessful HTTP response states passed simulated-DOM unit tests; they were not forced in a live browser.
 - The user has not recorded a walkthrough video, so no video URL exists yet.
 - Draft PR #2 targets `main` of the personal repository and remains unmerged. The PR was created by `kennethduron`. Its implementation commit remains attributed to `kennethmarjorie8` because GitHub associates the global Git email with that account. This mismatch is explained below; no history rewrite was performed.
 - The team has not formally confirmed that Trips was assigned to the user; this remains a proposed contribution.

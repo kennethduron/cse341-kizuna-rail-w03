@@ -1,40 +1,57 @@
-# CSE 341 W03 — Mongoose and Consuming APIs
-## Feature Set 1: Trips — Reflection Draft
+# Week 03 Reflection
 
-**Working repository:** [kennethduron/cse341-kizuna-rail-w03](https://github.com/kennethduron/cse341-kizuna-rail-w03) — a personal copy generated from the official BYU-Idaho template, not the team's shared repository.  
-**Feature status:** Implemented and locally verified in branch `feature/w03-trips`.  
-**GitHub Issue:** [#1 — Trips Mongoose API and list hydration](https://github.com/kennethduron/cse341-kizuna-rail-w03/issues/1).  
-**Pull Request:** [#2 — W03 Feature Set 1 — Trips Mongoose and API Hydration](https://github.com/kennethduron/cse341-kizuna-rail-w03/pull/2) — open Draft, not merged.
-**Walk-through video:** Not recorded; no video URL exists.
+## Selected Feature Set
 
-### 1. Feature Set Assignment
+1. Which feature set were you assigned to complete?
 
-I developed Feature Set 1 — Trips as my proposed personal contribution. I had offered to take Trips in the team channel, but I have not verified a formal team assignment. This implementation is in my personal copy of the official Kizuna Rail template and is not presented as a change in the shared team repository.
+Answer:
 
-### 2. Walk-through Video
+I developed Feature Set 1 — Trips as my proposed contribution. I had offered to take Trips in the CSE 341 team channel, but I do not have confirmation that the team formally assigned it to me. This implementation is in my personal copy of the official BYU-Idaho Kizuna Rail template, not in the team's shared repository.
 
-I have not recorded the required walk-through yet. The script and demonstration sequence are in [`CSE341_W03_Trips_Video_Script.md`](CSE341_W03_Trips_Video_Script.md); I will add the real video link after recording.
+## Links
 
-### 3. GitHub Issues
+2. Provide your walk-through video link. This video must demonstrate your feature working locally and follow the script in the assignment. (If you created more than one video for your feature set, include them all here.)
 
-I used one detailed Issue: [Issue #1](https://github.com/kennethduron/cse341-kizuna-rail-w03/issues/1). It tracks the dependent Trip schema, model, API, Swagger, EJS detail-handler refactor, browser hydration, acceptance criteria, and test plan in my personal repository.
+Video link:
 
-### 4. Pull Requests
+Not recorded yet. I will add the real link after I record the local demonstration.
 
-I opened [Draft Pull Request #2](https://github.com/kennethduron/cse341-kizuna-rail-w03/pull/2) from `feature/w03-trips` to `main` in my personal repository. It references Issue #1 with `Closes #1` and includes the implementation summary, test results, and limitations. It remains unmerged for review; the video link is still pending. GitHub displays the PR under my account, while the commit currently shows a different GitHub author attribution (`kennethmarjorie8`), which should be corrected or clarified before final submission without rewriting the published branch history.
+3. Provide links to all GitHub Issues you created for your selected feature set.
 
-### 5. Feature Split Decision
+Issue links:
 
-I kept Trips in one Issue because its schema, Mongoose queries, API responses, EJS detail page, and client-side list hydration share one data contract and one read flow. Schedules, Bookings, Stations, and Ticket Classes remain outside this contribution.
+- [Issue #1 — Trips Mongoose API and list hydration](https://github.com/kennethduron/cse341-kizuna-rail-w03/issues/1) in my personal repository.
 
-### 6. New Knowledge
+4. Provide links to all Pull Requests you created for your selected feature set.
 
-I learned that one Mongoose connection can provide its underlying native MongoDB `Db` object. I used that connection for the new Trips models while preserving the starter's native collection access for existing schedules, bookings, and Trains behavior, avoiding a second database connection.
+Pull request links:
 
-### 7. Review Preparation
+- [Draft PR #2 — W03 Feature Set 1: Trips Mongoose and API Hydration](https://github.com/kennethduron/cse341-kizuna-rail-w03/pull/2), from `feature/w03-trips` to `main` in my personal repository. It is open and unmerged. It is not yet ready for teammate review because the required walkthrough video is not attached.
 
-I added the existing Trip data contract and API behavior to Issue #1, kept implementation on a feature branch, ran ESLint and the complete Vitest suite (20 tests passed), ran six isolated controller unit tests, checked HTTP responses against an isolated in-memory MongoDB demo, and verified browser hydration, filtering, and navigation to a Trip detail page. The verification details are in [`CSE341_W03_Trips_Verification.md`](CSE341_W03_Trips_Verification.md). Draft PR #2 is open for teammate review.
+## Implementation Reflection
 
-### 8. Process Improvement
+5. Why did you decide to split your Feature Set into multiple GitHub issues or use a single issue?
 
-I can help the team by confirming feature ownership and shared data contracts before implementation, then announcing a focused PR with reproducible test results and a short walkthrough so teammates can review it promptly.
+Answer:
+
+I used one Issue because the schema, Mongoose queries, API responses, Swagger documentation, EJS detail page, and browser hydration form one connected Trips read flow and rely on the same Trip data contract. The Issue includes the requirements and test plan. I kept Schedules, Bookings, Stations, and Ticket Classes outside this contribution.
+
+6. What is one thing you know after completing the assignment that you did not know beforehand?
+
+Answer:
+
+I learned that a Mongoose connection exposes its underlying native MongoDB `Db` object. I used one connection for the new Trips models and preserved the starter's native collection access for existing features, avoiding a second connection or an unnecessary rewrite of those features.
+
+7. What did you do to make your pull requests clear and ready for teammate review?
+
+Answer:
+
+I documented the existing Trip fields, string slug IDs, schedule references, endpoint responses, and acceptance tests in Issue #1. I implemented the changes on `feature/w03-trips`, kept API routes in `src/routes/api-routes.js` and page routes in `src/routes/ejs-routes.js`, added API/model/EJS tests and isolated browser-hydration state tests, ran ESLint, checked the local demo routes, reviewed the diff for secrets, and opened Draft PR #2 with a summary, test notes, decisions, limitations, and the Issue reference. All nine unit tests and ESLint pass. The integration suite passed 20 tests before the route separation and three UI-state tests were added; I could not complete a fresh full-suite run in the current environment because the test runner could not complete its local MongoDB Memory Server connection. The walkthrough video and a teammate review remain outstanding, so the PR is still Draft.
+
+## Team Process
+
+8. What is one thing you can do personally to help your team be more effective next week?
+
+Answer:
+
+I can confirm feature ownership and shared data contracts with the team before integrating work, then announce a focused PR with reproducible test results and a short walkthrough so teammates can review it promptly. I will ask the team how to port this personal-copy implementation into the official shared repository rather than treating my personal PR as team work.

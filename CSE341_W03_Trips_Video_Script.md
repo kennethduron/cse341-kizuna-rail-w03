@@ -1,6 +1,6 @@
 # CSE 341 W03 Trips — Walk-through Script
 
-**Target length:** about 3 minutes.  
+**Target length:** about 3 minutes.
 **State:** Script prepared; no recording or video URL exists yet.
 
 ## Before recording
@@ -26,7 +26,7 @@ Select **Central** and show the two matching Trips. Open **Alpine Panorama Expre
 
 ### 0:55–1:25 — Show the API and documentation
 
-Open `/api/trips` and `/api/trips/alpine-panorama`, then `/api-docs/`.
+Open `/api/trips` and `/api/trips/alpine-panorama`, then `/api-docs/`. Briefly show `src/routes/api-routes.js` and `src/routes/ejs-routes.js` to point out the separation between API and page routes.
 
 “The list endpoint returns the Trips in a `{ trips: [...] }` JSON envelope, matching the existing Trains API convention. The detail endpoint looks up the custom string ID. Swagger documents the slug parameter, response schema, and 200, 400, 404, and 500 outcomes.”
 

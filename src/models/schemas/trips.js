@@ -1,0 +1,37 @@
+import mongoose from 'mongoose';
+
+const tripSchema = new mongoose.Schema(
+  {
+    id: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+      match: /^[a-z0-9]+(?:-[a-z0-9]+)*$/
+    },
+    name: { type: String, required: true, trim: true },
+    description: { type: String, required: true, trim: true },
+    region: { type: String, required: true, trim: true },
+    startStation: { type: String, required: true, trim: true },
+    endStation: { type: String, required: true, trim: true },
+    duration: { type: String, required: true, trim: true },
+    distance: { type: Number, required: true, min: 0 },
+    highlights: { type: [String], required: true, default: [] },
+    bestSeason: { type: String, required: true, trim: true },
+    operatingMonths: {
+      type: [{ type: Number, min: 1, max: 12 }],
+      required: true,
+      validate: {
+        validator: (months) => months.length > 0,
+        message: 'At least one operating month is required.'
+      }
+    },
+    imageUrl: { type: String, trim: true }
+  },
+  {
+    timestamps: true,
+    versionKey: false
+  }
+);
+
+export default tripSchema;

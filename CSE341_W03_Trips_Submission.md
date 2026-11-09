@@ -4,7 +4,7 @@
 **Working repository:** [kennethduron/cse341-kizuna-rail-w03](https://github.com/kennethduron/cse341-kizuna-rail-w03) — a personal copy generated from the official BYU-Idaho template, not the team's shared repository.  
 **Feature status:** Implemented and locally verified in branch `feature/w03-trips`.  
 **GitHub Issue:** [#1 — Trips Mongoose API and list hydration](https://github.com/kennethduron/cse341-kizuna-rail-w03/issues/1).  
-**Pull Request:** Not yet created.  
+**Pull Request:** [#2 — W03 Feature Set 1 — Trips Mongoose and API Hydration](https://github.com/kennethduron/cse341-kizuna-rail-w03/pull/2) — open Draft, not merged.
 **Walk-through video:** Not recorded; no video URL exists.
 
 ### 1. Feature Set Assignment
@@ -21,7 +21,7 @@ I used one detailed Issue: [Issue #1](https://github.com/kennethduron/cse341-kiz
 
 ### 4. Pull Requests
 
-No Pull Request has been created yet. The code is on `feature/w03-trips`, and local checks have passed. I will create a PR to `main` in the personal repository after publishing the branch. It will reference Issue #1, list the verified tests and limitations, and include the video link when one exists. I will not merge it.
+I opened [Draft Pull Request #2](https://github.com/kennethduron/cse341-kizuna-rail-w03/pull/2) from `feature/w03-trips` to `main` in my personal repository. It references Issue #1 with `Closes #1` and includes the implementation summary, test results, and limitations. It remains unmerged for review; the video link is still pending. GitHub displays the PR under my account, while the commit currently shows a different GitHub author attribution (`kennethmarjorie8`), which should be corrected or clarified before final submission without rewriting the published branch history.
 
 ### 5. Feature Split Decision
 
@@ -33,7 +33,7 @@ I learned that one Mongoose connection can provide its underlying native MongoDB
 
 ### 7. Review Preparation
 
-I added the existing Trip data contract and API behavior to Issue #1, kept implementation on a feature branch, ran ESLint and the complete Vitest suite (20 tests passed), ran six isolated controller unit tests, checked real HTTP responses against an isolated in-memory MongoDB demo, and verified browser hydration, filtering, and navigation to a Trip detail page. The verification details are in [`CSE341_W03_Trips_Verification.md`](CSE341_W03_Trips_Verification.md). A PR is still required for teammate review.
+I added the existing Trip data contract and API behavior to Issue #1, kept implementation on a feature branch, ran ESLint and the complete Vitest suite (20 tests passed), ran six isolated controller unit tests, checked HTTP responses against an isolated in-memory MongoDB demo, and verified browser hydration, filtering, and navigation to a Trip detail page. The verification details are in [`CSE341_W03_Trips_Verification.md`](CSE341_W03_Trips_Verification.md). Draft PR #2 is open for teammate review.
 
 ### 8. Process Improvement
 

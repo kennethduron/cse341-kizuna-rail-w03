@@ -3,6 +3,7 @@
 **Repository:** `kennethduron/cse341-kizuna-rail-w03` (personal copy generated from the official `byui-cse/cse341-ww-student-kizuna-rail` template)  
 **Branch:** `feature/w03-trips`  
 **Issue:** [#1](https://github.com/kennethduron/cse341-kizuna-rail-w03/issues/1)  
+**Pull Request:** [#2](https://github.com/kennethduron/cse341-kizuna-rail-w03/pull/2) — open Draft, not merged.
 **Scope:** Trips implementation and the minimum shared database connection adaptation required for Mongoose. No other repository or Atlas database was used.
 
 ## Source contract confirmed before implementation
@@ -34,12 +35,12 @@
 | `npm test` | Passed: 20 tests across Trips and existing Trains suites. A first run failed because the temporary mongod startup exceeded its default 10-second timeout; after setting 60 seconds, the complete suite passed. |
 | Local demo HTTP checks (temporary database) | `/` 200; `/trips` 200; `/api/trips` returned 6 records; `/api/trips/alpine-panorama` 200; `/trips/alpine-panorama` 200 and included schedule data; `/api-docs/` 200; `/api-docs.json` included `/api/trips`; invalid ID 400; valid but missing ID 404. |
 | Chrome browser check against local demo | Confirmed six dynamically hydrated Trip cards, region filter options, filtering `central` to two trips, and navigation from a card to the Trip detail page with schedules. |
-| Git hygiene | `.env` remains ignored by `.gitignore`; no `.env` file was created for this demo. Full final diff/secret scan and GitHub publication remain to be completed. |
+| Git hygiene | `.env` is ignored by `.gitignore`; no `.env` file was created for this demo. The final diff and secret-pattern scan passed; branch `feature/w03-trips` was pushed and Draft PR #2 was created. |
 
 ## Limitations and outstanding work
 
 - No production database, shared team database, Atlas, or Render service was accessed.
 - No empty-list or network-error state was forced in the browser; those states are implemented, and the list/controller logic has tests, but these two visual states are not claimed as manually browser-tested.
 - The user has not recorded a walkthrough video, so no video URL exists yet.
-- Branch publication and a PR are still pending. They must target `main` of the personal repository and remain unmerged.
+- Draft PR #2 targets `main` of the personal repository and remains unmerged. The PR is open for teammate review; GitHub shows the PR creator as `kennethduron`, but the commit is attributed to `kennethmarjorie8`. This attribution needs clarification before treating authorship evidence as fully clean; no history rewrite was performed.
 - The team has not formally confirmed that Trips was assigned to the user; this remains a proposed contribution.
